@@ -7,10 +7,11 @@ import exampleVideoData from '../data/exampleVideoData.js';
 
 //Redux.createStore(rootReducer);
 
-// const initialState = {
-//   currentVideo = exampleVideoData[0],
-//   videoList = exampleVideoData
-// }
-const store = createStore(rootReducer, applyMiddleware(thunk));
+const initialState = {
+  currentVideo: null,
+  videoList: exampleVideoData
+}
+const store = createStore(rootReducer, initialState, applyMiddleware(thunk));
 
 export default store;
+

@@ -10,29 +10,26 @@ var handleVideoSearch = (q) => {
 
   //TODO:  Write an asynchronous action to handle a video search!
 
-var obj = {
-  //type: 'handleVideoSearch'
-}
-
-
 var options = {
   key: YOUTUBE_API_KEY,
   query: q
 };
 
-searchYouTube(options, (videos) => {
-  console.log('videos', videos);
 
-  obj.video = changeVideo(videos[0]);
-  obj.videos = changeVideoList(videos);
+ return function(dispatch){
+  searchYouTube(options, (videos) => {
+    console.log('videos', videos);
 
-  }
- );
 
- return function(){
-   return obj;
+    dispatch(changeVideo(videos[0]));
+    dispatch(changeVideoList(videos));
+
+    }
+  );
+
  };
 
 }
 
 export default handleVideoSearch;
+

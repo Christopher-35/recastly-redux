@@ -18,7 +18,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = dispatch => {
   return {
     // dispatching plain actions
-    handleVideoListEntryTitleClick: () => dispatch({ type: 'CHANGE_VIDEO_LIST' })
+    handleVideoListEntryTitleClick: (video) => dispatch(changeVideo(video))
   }
 }
 
